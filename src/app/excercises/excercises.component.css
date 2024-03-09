@@ -1,0 +1,14 @@
+.text{
+    font-size: 72px;
+    background-image: radial-gradient(circle,rgb(52, 52, 103), #58d553, green);
+    -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+  font-size: medium;
+  padding: 40px;
+}
+.body{
+  background-image: url(../../assets/images/26760.jpg);
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}

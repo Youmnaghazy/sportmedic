@@ -1,0 +1,36 @@
+<div class="body">
+    <div class="w-100 container d-flex py-5">
+        <div class="w-50 background">
+            <!-- <img src="../../assets/images/gaming.ebaf2ffc84f4451d.jpg" alt="" class="w-100"> -->
+        </div>
+        <div class="w-50 py-5 login">
+            <img src="../../assets/images/project logo.png" alt="" >
+            <h4 class="text-center">Log in to SportMedic</h4>
+            <div *ngIf="apiError.length >0" class="alert alert-info">
+                {{apiError}}
+            </div>
+           <form (ngSubmit)="handleLogin(loginForm)" [formGroup]="loginForm">
+             <div class="inputs m-3">
+                <input class="form-control mt-3" formControlName="email" id="email" type="email" placeholder="Email" aria-label="default input example">
+                <div *ngIf="loginForm.get('email')?.errors&&loginForm.get('email')?.touched"class="alert alert-info">
+                    <p *ngIf="loginForm.get('email')?.getError('email')" class="m-0">Invalid Email</p>
+                    <p *ngIf="loginForm.get('email')?.getError('required')"class="m-0">email is required</p>
+                </div>
+                <input class="form-control  mt-3 " formControlName="password" id="password" type="text" placeholder="Password" aria-label="default input example">
+                <div *ngIf="loginForm.get('password')?.errors&&loginForm.get('password')?.touched"class="alert alert-info">
+                    <p *ngIf="loginForm.get('password')?.getError('pattern')" class="m-0">password must start with upperCase then from 3 to 10</p>
+                    <p *ngIf="loginForm.get('password')?.getError('required')"class="m-0">password is required</p>
+                </div>
+                <button [disabled]="loginForm.invalid" type="submit" class="btn w-100 mt-4 text-white">
+                <i *ngIf="isLoading" class="fas fas fa-spinner fa-spin"></i>
+                <span *ngIf="!isLoading" class="text-white">Log in</span>
+            </button>
+            <p class="text-center pt-4"><a href="../register">Forget Password?</a></p>
+                <p class="text-center pt-1">Not A member yet?<a href="../register">Create Account></a></p>
+            </div>
+           </form>
+            
+             
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="body">
+<div class="ipload text-center pt-5">
+    <input type="file" id="images" accept="image/*" required (change)="savingFile($event)">
+
+
+<div *ngFor="let item of pred | keyvalue">
+  {{item.key}} : {{item.value}}
+</div>
+
+<button class="btn btn-lg btn-success w-25" (click)="predFunc()" >predict</button>
+</div>
+</div>

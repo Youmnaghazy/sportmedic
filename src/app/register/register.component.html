@@ -1,0 +1,63 @@
+<div class="body">
+    <div class="w-100 container d-flex py-5">
+        <div class="w-50 background">
+            <!-- <img src="../../assets/images/gaming.ebaf2ffc84f4451d.jpg" alt="" class="w-100"> -->
+        </div>
+        <div class="w-50 py-5 register">
+            <h4 class="text-center">Create My Account</h4>
+            <div *ngIf="apiError.length >0" class="alert alert-info">
+                {{apiError}}
+            </div>
+           <form (ngSubmit)="handleRegister(registerForm)" [formGroup]="registerForm">
+            <div class="row container pt-4 ">
+                <div class="col">
+                  <input type="text" formControlName="FristName" class="form-control" placeholder="First name" aria-label="First name" id="FristName">
+                  <div *ngIf="registerForm.get('FristName')?.errors&&registerForm.get('FristName')?.touched"class="alert alert-info">
+                    <p *ngIf="registerForm.get('FristName')?.getError('minlength')" class="m-0">FristName minLength is 3</p>
+                    <p *ngIf="registerForm.get('FristName')?.getError('maxlength')"class="m-0">FristName maxLength is 10</p>
+                    <p *ngIf="registerForm.get('FristName')?.getError('required')"class="m-0">FristName is required</p>
+                </div>
+                </div>
+                <div class="col">
+                  <input type="text" formControlName="lastName" class="form-control" placeholder="Last name" aria-label="Last name" id="lastName">
+                  <div *ngIf="registerForm.get('lastName')?.errors&&registerForm.get('lastName')?.touched"class="alert alert-info">
+                    <p *ngIf="registerForm.get('lastName')?.getError('minlength')" class="m-0">lastName minLength is 3</p>
+                    <p *ngIf="registerForm.get('lastName')?.getError('maxlength')"class="m-0">lastName maxLength is 10</p>
+                    <p *ngIf="registerForm.get('lastName')?.getError('required')"class="m-0">lastName is required</p>
+                </div>
+                </div>
+              </div>
+             <div class="inputs m-3">
+                <input class="form-control mt-3" formControlName="email" id="email" type="email" placeholder="Email" aria-label="default input example">
+                <div *ngIf="registerForm.get('email')?.errors&&registerForm.get('email')?.touched"class="alert alert-info">
+                    <p *ngIf="registerForm.get('email')?.getError('email')" class="m-0">Invalid Email</p>
+                    <p *ngIf="registerForm.get('email')?.getError('required')"class="m-0">email is required</p>
+                </div>
+                <input class="form-control  mt-3 " formControlName="age" id="age" type="number" placeholder="Age" aria-label="default input example">
+                <div *ngIf="registerForm.get('age')?.errors&&registerForm.get('age')?.touched"class="alert alert-info">
+                    <p *ngIf="registerForm.get('age')?.getError('pattern')" class="m-0">Invalid age</p>
+                    <p *ngIf="registerForm.get('age')?.getError('required')"class="m-0">age is required</p>
+                </div>
+                <input class="form-control  mt-3 " formControlName="password" id="password" type="text" placeholder="Password" aria-label="default input example">
+                <div *ngIf="registerForm.get('password')?.errors&&registerForm.get('password')?.touched"class="alert alert-info">
+                    <p *ngIf="registerForm.get('password')?.getError('pattern')" class="m-0">password must start with upperCase then from 3 to 10</p>
+                    <p *ngIf="registerForm.get('password')?.getError('required')"class="m-0">password is required</p>
+                </div>
+                <input class="form-control  mt-3 " formControlName="repeat_password" id="repeat_password" type="text" placeholder="repeat_password" aria-label="default input example">
+                <div *ngIf="registerForm.get('repeat_password')?.errors&&registerForm.get('repeat_password')?.touched"class="alert alert-info">
+                    <p *ngIf="registerForm.get('repeat_password')?.getError('pattern')" class="m-0">repeat_password must start with upperCase then from 3 to 10</p>
+                    <p *ngIf="registerForm.get('repeat_password')?.getError('required')"class="m-0">repeat_password is required</p>
+                </div>
+                <button [disabled]="registerForm.invalid" type="submit" class="btn w-100 mt-4">
+                <i *ngIf="isLoading" class="fas fas fa-spinner fa-spin"></i>
+                <span *ngIf="!isLoading">Create Account</span>
+            </button>
+                <p class="text-center pt-4">This site is protected by reCAPTCHA and the<a href="https://policies.google.com/privacy"> Google Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+                <p class="text-center pt-3">Already a member? <a href="../login"> Login</a></p>
+            </div>
+           </form>
+            
+             
+        </div>
+    </div>
+</div>

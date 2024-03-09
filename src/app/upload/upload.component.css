@@ -1,0 +1,39 @@
+
+.upload{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+form{
+    height: 100vh;
+}
+.body{
+    background-image: url(../../assets/images/rm222batch3-mind-06.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+input[type=file]::file-selector-button{
+    margin-right: 20px;
+    border: none;
+    background-color: darkgreen;
+    padding: 10px 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    -webkit-transition: background .2s ease-in-out;
+    -moz-transition: background .2s ease-in-out;
+    -ms-transition: background .2s ease-in-out;
+    -o-transition: background .2s ease-in-out;
+}
+input[type=file]::file-selector-button:hover{
+    background-color: #307a17;
+}
